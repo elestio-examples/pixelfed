@@ -29,9 +29,6 @@ services:
       - redis
 
   worker:
-    build:
-      context: .
-      dockerfile: contrib/docker/Dockerfile.apache
     image: pixelfed
     restart: always
     env_file:
