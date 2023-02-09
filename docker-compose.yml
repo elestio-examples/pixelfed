@@ -14,28 +14,32 @@ services:
 ## App and Worker
   app:
     # Comment to use dockerhub image
-    image: zknt/pixelfed:latest
+    image: pixelfed/pixelfed:latest
     restart: always
     env_file:
       - .env
     volumes:
       - ./app-storage:/var/www/storage
       - ./app-bootstrap:/var/www/bootstrap
-      - "./.env:/var/www/.env"
+      # - "./.env.docker:/var/www/.env"
+    networks:
+      - internal
     ports:
-      - "172.17.0.1:7070:80"
+      - "172.17.0.1:8686:80"
     depends_on:
       - db
       - redis
 
   worker:
-    image: zknt/pixelfed:latest
+    image: pixelfed/pixelfed:latest
     restart: always
     env_file:
       - .env
     volumes:
       - ./app-storage:/var/www/storage
       - ./app-bootstrap:/var/www/bootstrap
+    networks:
+      - internal
     command: gosu www-data php artisan horizon
     depends_on:
       - db
@@ -45,6 +49,8 @@ services:
   db:
     image: mariadb:jammy
     restart: always
+    networks:
+      - internal
     command: --default-authentication-plugin=mysql_native_password
     env_file:
       - .env
@@ -58,3 +64,9 @@ services:
       - .env
     volumes:
       - "./redis-data:/data"
+    networks:
+      - internal
+
+networks:
+  internal:
+    internal: true
