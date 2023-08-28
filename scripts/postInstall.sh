@@ -10,7 +10,7 @@ docker-compose exec -T app php artisan config:cache
 yes |docker-compose exec -T app php artisan migrate
 docker-compose restart app
 
-echo -e "admin\nadmin\n${ADMIN_EMAIL}\n${ADMIN_PASSWORD}\n${ADMIN_PASSWORD}\ny\nn\ny" | docker-compose exec -T app php artisan user:create
+echo -e "admin\nadmin\n${ADMIN_EMAIL}\n${ADMIN_PASSWORD}\n${ADMIN_PASSWORD}\ny\ny\ny" | docker-compose exec -T app php artisan user:create
 
 sleep 30s;
 docker-compose down;
