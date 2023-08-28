@@ -65,7 +65,7 @@ services:
     image: phpmyadmin
     restart: always
     links:
-      - mysql:mysql
+      - db:db
     ports:
       - "172.17.0.1:23781:80"
     environment:
