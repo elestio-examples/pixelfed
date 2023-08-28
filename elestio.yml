@@ -13,7 +13,7 @@ environments:
   - key: "ADMIN_PASSWORD"
     value: "random_password"
   - key: "APP_NAME"
-    value: "Pixelfed Prod"
+    value: "'Pixelfed Prod'"
   - key: "APP_ENV"
     value: "production"
   - key: "APP_DEBUG"
