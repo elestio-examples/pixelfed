@@ -25,6 +25,8 @@ ports:
     targetPort: "4406"
     public: true
 environments:
+  - key: "ADMIN_PASSWORD"
+    value: "random_password"
   - key: "APP_KEY"
     value: ""
   - key: "APP_NAME"
@@ -114,7 +116,7 @@ environments:
   - key: "DB_HOST"
     value: "db"
   - key: "DB_PASSWORD"
-    value: "pixelfed_db_pass"
+    value: "random_password"
   - key: "DB_PORT"
     value: "3306"
   - key: "DB_USERNAME"
@@ -122,7 +124,7 @@ environments:
   - key: "MYSQL_DATABASE"
     value: "pixelfed_prod"
   - key: "MYSQL_PASSWORD"
-    value: "pixelfed_db_pass"
+    value: "random_password"
   - key: "MYSQL_RANDOM_ROOT_PASSWORD"
     value: "true"
   - key: "MYSQL_USER"
