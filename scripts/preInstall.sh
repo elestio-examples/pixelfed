@@ -7,3 +7,8 @@ mkdir -p ./db-data
 mkdir -p ./app-storage
 mkdir -p ./app-bootstrap
 chown -R 1000:1000 ./data
+
+cat << EOT >> ./.env
+
+APP_KEY=
+EOT
