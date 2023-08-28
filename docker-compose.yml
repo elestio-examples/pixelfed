@@ -14,7 +14,7 @@ services:
   ## App and Worker
   app:
     # Comment to use dockerhub image
-    image: pixelfed/pixelfed:latest
+    image: elestio4test/pixelfed:latest
     restart: always
     env_file:
       - .env
@@ -29,7 +29,7 @@ services:
       - redis
 
   worker:
-    image: pixelfed/pixelfed:latest
+    image: elestio4test/pixelfed:latest
     restart: always
     env_file:
       - .env
