@@ -1,5 +1,5 @@
 ---
-version: '3'
+version: "3"
 
 # In order to set configuration, please use a .env file in
 # your compose project directory (the same directory as your
@@ -11,7 +11,7 @@ version: '3'
 # if the volumes are properly shared between cluster members.
 
 services:
-## App and Worker
+  ## App and Worker
   app:
     # Comment to use dockerhub image
     image: pixelfed/pixelfed:latest
@@ -21,9 +21,7 @@ services:
     volumes:
       - ./app-storage:/var/www/storage
       - ./app-bootstrap:/var/www/bootstrap
-      # - "./.env.docker:/var/www/.env"
-    networks:
-      - internal
+      - "./.env:/var/www/.env"
     ports:
       - "172.17.0.1:8686:80"
     depends_on:
@@ -38,35 +36,45 @@ services:
     volumes:
       - ./app-storage:/var/www/storage
       - ./app-bootstrap:/var/www/bootstrap
-    networks:
-      - internal
     command: gosu www-data php artisan horizon
     depends_on:
       - db
       - redis
 
-## DB and Cache
+  ## DB and Cache
   db:
-    image: mariadb:jammy
+    image: elestio/mysql:8.0
     restart: always
-    networks:
-      - internal
     command: --default-authentication-plugin=mysql_native_password
     env_file:
       - .env
     volumes:
       - "./db-data:/var/lib/mysql"
+    ports:
+      - 172.17.0.1:4406:3306
 
   redis:
-    image: redis:5-alpine
+    image: elestio/redis:7.0
     restart: always
     env_file:
       - .env
     volumes:
       - "./redis-data:/data"
-    networks:
-      - internal
 
-networks:
-  internal:
-    internal: true
+  pma:
+    image: phpmyadmin
+    restart: always
+    links:
+      - mysql:mysql
+    ports:
+      - "172.17.0.1:23781:80"
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: ${MYSQL_USERNAME}
+      PMA_PASSWORD: ${MYSQL_PASSWORD}
+      UPLOAD_LIMIT: 500M
+      MYSQL_USERNAME: root
+      MYSQL_ROOT_PASSWORD: ${ADMIN_PASSWORD}
+    depends_on:
+      - mysql

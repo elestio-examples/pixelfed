@@ -15,3 +15,9 @@ You can can open Pixelfed UI here:
     URL: https://[CI_CD_DOMAIN]
     Login: root
     password: [ADMIN_PASSWORD]
+
+You can open PHPMyAdmin here:
+
+    URL: https://[CI_CD_DOMAIN]:8543
+    email: [ADMIN_EMAIL]
+    password: [ADMIN_PASSWORD]
