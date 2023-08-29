@@ -19,7 +19,7 @@ services:
     image: elestio4test/pixelfed:latest
     restart: always
     env_file:
-      - .env
+      - ./.env
     volumes:
       - ./app-storage:/var/www/storage
       - "./.env:/var/www/.env"
