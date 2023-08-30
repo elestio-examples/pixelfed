@@ -56,7 +56,7 @@ services:
     ports:
       - "172.17.0.1:24585:80"
     environment:
-      PMA_HOST: mariadb
+      PMA_HOST: db
       PMA_PORT: 3306
       PMA_USER: root
       PMA_PASSWORD: ${ADMIN_PASSWORD}
@@ -64,4 +64,4 @@ services:
       MYSQL_USERNAME: root
       MYSQL_ROOT_PASSWORD: ${ADMIN_PASSWORD}
     depends_on:
-      - mariadb
+      - db
