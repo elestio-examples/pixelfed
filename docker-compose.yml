@@ -7,7 +7,7 @@ services:
     env_file:
       - ./.env
     volumes:
-      - ./app-storage:/var/www/storage
+      - ./storage/app-storage:/var/www/storage
       - "./.env:/var/www/.env"
     ports:
       - "172.17.0.1:8686:80"
@@ -21,7 +21,7 @@ services:
     env_file:
       - ./.env
     volumes:
-      - ./app-storage:/var/www/storage
+      - ./storage/app-storage:/var/www/storage
       - "./.env:/var/www/.env"
     command: gosu www-data php artisan horizon
     depends_on:
@@ -35,7 +35,7 @@ services:
     env_file:
       - ./.env
     volumes:
-      - "./db-data:/var/lib/mysql"
+      - "./storage/db-data:/var/lib/mysql"
     ports:
       - 172.17.0.1:4406:3306
 
@@ -45,5 +45,5 @@ services:
     env_file:
       - ./.env
     volumes:
-      - "./redis-data:/data"
+      - "./storage/redis-data:/data"
     command: ["redis-server", "--requirepass", "${REDIS_PASSWORD}"]

@@ -189,6 +189,7 @@ lifeCycleConfig:
   postBackupCommand: "./scripts/postBackup.sh"
   preRestoreCommand: "./scripts/preRestore.sh"
   postRestoreCommand: "./scripts/postRestore.sh"
+  postUpdateCommand: "./scripts/postUpdateCommand.sh"
 webUI:
   - url: "https://[CI_CD_DOMAIN]"
     label: "Pixelfed Admin"
