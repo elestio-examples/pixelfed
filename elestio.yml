@@ -15,7 +15,7 @@ ports:
     public: true
     path: "/"
     isAuth: true
-    login: "root"
+    login: "pixelfed"
     password: "random_password"
   - protocol: "TCP"
     targetProtocol: "TCP"

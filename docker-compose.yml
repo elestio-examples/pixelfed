@@ -58,10 +58,10 @@ services:
     environment:
       PMA_HOST: db
       PMA_PORT: 3306
-      PMA_USER: root
+      PMA_USER: pixelfed
       PMA_PASSWORD: ${ADMIN_PASSWORD}
       UPLOAD_LIMIT: 500M
-      MYSQL_USERNAME: root
+      MYSQL_USERNAME: pixelfed
       MYSQL_ROOT_PASSWORD: ${ADMIN_PASSWORD}
     depends_on:
       - db
