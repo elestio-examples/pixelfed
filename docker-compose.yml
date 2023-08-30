@@ -2,7 +2,7 @@ version: "3.3"
 
 services:
   app:
-    image: elestio/pixelfed:latest
+    image: elestio/pixelfed:${SOFTWARE_VERSION_TAG}
     restart: always
     env_file:
       - ./.env
@@ -16,7 +16,7 @@ services:
       - redis
 
   worker:
-    image: elestio/pixelfed:latest
+    image: elestio/pixelfed:${SOFTWARE_VERSION_TAG}
     restart: always
     env_file:
       - ./.env
