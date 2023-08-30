@@ -7,6 +7,26 @@ ports:
     public: true
     path: "/"
     isAuth: false
+  - protocol: "HTTPS"
+    targetProtocol: "HTTP"
+    listeningPort: "2443"
+    targetPort: "24585"
+    targetIP: "172.17.0.1"
+    public: true
+    path: "/"
+    isAuth: true
+    login: "root"
+    password: "random_password"
+  - protocol: "TCP"
+    targetProtocol: "TCP"
+    listeningPort: "23065"
+    targetIP: "172.17.0.1"
+    targetPort: "4406"
+    public: true
+    path: "/"
+    isAuth: false
+    login: ""
+    password: ""
 environments:
   - key: "ADMIN_EMAIL"
     value: "[EMAIL]"

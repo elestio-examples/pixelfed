@@ -16,6 +16,12 @@ You can can open Pixelfed UI here:
     email: [ADMIN_EMAIL]
     password: [ADMIN_PASSWORD]
 
+You can open PHPMyAdmin web UI here:
+
+    URL: https://[CI_CD_DOMAIN]:2443
+    email: root
+    password: [ADMIN_PASSWORD]
+
 # Custom domain instructions (IMPORTANT)
 
 By default we setup a CNAME on elestio.app domain, but probably you will want to have your own domain.
