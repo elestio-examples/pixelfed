@@ -8,7 +8,7 @@ services:
       - ./.env
     volumes:
       - ./storage/app-storage:/var/www/storage
-      - "./.env:/var/www/.env"
+      - "${folderName}/.env:/var/www/.env"
     ports:
       - "172.17.0.1:8686:80"
     depends_on:
@@ -22,7 +22,7 @@ services:
       - ./.env
     volumes:
       - ./storage/app-storage:/var/www/storage
-      - "./.env:/var/www/.env"
+      - "${folderName}/.env:/var/www/.env"
     command: gosu www-data php artisan horizon
     depends_on:
       - db
