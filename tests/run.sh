@@ -9,9 +9,9 @@ set -o allexport; source .env; set +o allexport;
 
 docker-compose exec -T app php artisan key:generate
 docker-compose restart app
-docker-compose exec -T app php artisan config:cache
-yes | docker-compose exec -T app php artisan migrate
-docker-compose exec -T app php artisan passport:install
+docker-compose exec -T app php artisan config:cache --force
+docker-compose exec -T app php artisan migrate --force
+docker-compose exec -T app php artisan passport:install --force
 docker-compose exec -T app php artisan instance:actor
 docker-compose restart app
 
