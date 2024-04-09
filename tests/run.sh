@@ -1,5 +1,6 @@
 sleep 60s;
 
+docker-compose up -d;
 docker-compose exec -T app php artisan key:generate
 # docker-compose restart app
 docker-compose exec -T app php artisan config:cache --force
