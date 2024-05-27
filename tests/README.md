@@ -183,6 +183,8 @@ Here are some example snippets to help you get started creating a container.
 |          QUEUE_DRIVER          |          redis          |
 |         SESSION_DRIVER         |          redis          |
 |         TRUST_PROXIES          |           \*            |
+|      DOCKER_DB_HOST_PORT       |          3306           |
+|         OAUTH_ENABLED          |          false          |
 
 # Maintenance
 
