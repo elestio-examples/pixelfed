@@ -2,11 +2,11 @@
 set -o allexport; source .env; set +o allexport;
 
 echo "Waiting for software to be ready ..."
-sleep 30s;
+sleep 90s;
 
-docker-compose exec -T app php artisan key:generate
-docker-compose restart app
-docker-compose exec -T app php artisan config:cache --force
+# docker-compose exec -T app php artisan key:generate
+# docker-compose restart app
+docker-compose exec -T app php artisan config:cache 
 docker-compose exec -T app php artisan migrate --force
 docker-compose exec -T app php artisan passport:install --force
 docker-compose exec -T app php artisan instance:actor

@@ -197,6 +197,10 @@ environments:
     value: "*"
   - key: "REMOTE_AVATARS"
     value: "true"
+  - key: "DOCKER_DB_HOST_PORT"
+    value: "3306"
+  - key: "OAUTH_ENABLED"
+    value: "false"
 
 config:
   runTime: "dockerCompose"
