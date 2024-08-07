@@ -17,6 +17,6 @@ echo -e "admin\nadmin\n${ADMIN_EMAIL}\n${ADMIN_PASSWORD}\n${ADMIN_PASSWORD}\ny\n
 chmod 777 ./storage/app-storage/oauth-private.key 
 chmod 777 ./storage/app-storage/oauth-public.key 
 
-sleep 15s;
+sleep 20s;
 docker-compose down;
 docker-compose up -d;
